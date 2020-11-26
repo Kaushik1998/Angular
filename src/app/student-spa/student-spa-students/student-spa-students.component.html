@@ -1,0 +1,35 @@
+<hr />
+<div class="container-fluid">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">ID</th>
+        <th scope="col">Age</th>
+        <th scope="col">Email</th>
+        <th scope="col">Roll No</th>
+        <th scope="col">Date</th>
+        <th scope="col">Male</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let student of students; let index = index">
+      <tr>
+        <th>{{ index + 1 }}</th>
+        <td>{{ student.name }}</td>
+        <td>{{ student.id }}</td>
+        <td>{{ student.age }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.rollNo }}</td>
+        <td>{{ student.date }}</td>
+        <td>{{ student.isMale }}</td>
+        <td>
+          <button class="btn-light" (click)="deleteStudent(student.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

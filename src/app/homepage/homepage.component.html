@@ -1,0 +1,20 @@
+<navbar [logo]="title">
+  <li class="nav-item" routerLinkActive="active">
+    <a routerLink="studentApi" class="nav-link"
+      ><button class="btn btn-danger" disabled>Student API</button></a
+    >
+  </li>
+  <li class="nav-item" routerLinkActive="active">
+    <a routerLink="numbersApi" class="nav-link"
+      ><button class="btn btn-success">Numbers API</button></a
+    >
+  </li>
+  <li class="nav-item" routerLinkActive="active">
+    <a routerLink="studentSpa" class="nav-link"
+      ><button class="btn btn-success">Student SPA</button></a
+    >
+  </li>
+</navbar>
+
+<hr />
+<div class="container-fluid"><router-outlet></router-outlet></div>

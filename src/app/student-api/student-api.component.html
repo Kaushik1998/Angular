@@ -1,0 +1,261 @@
+<navbar [logo]="'Student API'">
+  <li class="nav-item active">
+    <a class="nav-link" href="#">
+      <button
+        type="button"
+        class="btn btn-dark"
+        data-toggle="modal"
+        data-target="#addModal"
+      >
+        Add
+      </button>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">
+      <button
+        type="button"
+        class="btn btn-dark"
+        data-toggle="modal"
+        data-target="#updateModal"
+      >
+        Update
+      </button></a
+    >
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">
+      <button
+        type="button"
+        class="btn btn-dark"
+        data-toggle="modal"
+        data-target="#deleteModal"
+      >
+        Delete
+      </button></a
+    >
+  </li>
+</navbar>
+
+<div class="container-fluid">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">ID</th>
+        <th scope="col">Age</th>
+        <th scope="col">Email</th>
+        <th scope="col">Roll No</th>
+        <th scope="col">Date</th>
+        <th scope="col">Male</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let student of students; let index = index">
+      <tr>
+        <th>{{ index + 1 }}</th>
+        <td>{{ student.name }}</td>
+        <td>{{ student.id }}</td>
+        <td>{{ student.age }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.rollNo }}</td>
+        <td>{{ student.date }}</td>
+        <td>{{ student.isMale }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Add Modal Starts -->
+<div
+  class="modal fade"
+  id="addModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Name"
+          [(ngModel)]="addStudent.name"
+        />
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Age"
+          [(ngModel)]="addStudent.age"
+        />
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Roll No"
+          [(ngModel)]="addStudent.rollNo"
+        />
+        <input
+          type="date"
+          class="form-control"
+          placeholder="Date"
+          [(ngModel)]="addStudent.date"
+        />
+        <input
+          type="text"
+          class="form-control d-block"
+          placeholder="Email"
+          [(ngModel)]="addStudent.email"
+        />
+        <div class="input-group-text">
+          <div class="input-group-prepend">
+            <span class="mr-2">Male</span>
+          </div>
+          <input type="checkbox" [(ngModel)]="addStudent.isMale" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="postStudent()">
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Modal Ends -->
+
+<!-- Update Modal Starts -->
+<div
+  class="modal fade"
+  id="updateModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="ID"
+          [(ngModel)]="updateStudent.id"
+        />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Name"
+          [(ngModel)]="updateStudent.name"
+        />
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Age"
+          [(ngModel)]="updateStudent.age"
+        />
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Roll No"
+          [(ngModel)]="updateStudent.rollNo"
+        />
+        <input
+          type="date"
+          class="form-control"
+          placeholder="Date"
+          [(ngModel)]="updateStudent.date"
+        />
+        <input
+          type="text"
+          class="form-control d-block"
+          placeholder="Email"
+          [(ngModel)]="updateStudent.email"
+        />
+        <div class="input-group-text">
+          <div class="input-group-prepend">
+            <span class="mr-2">Male</span>
+          </div>
+          <input type="checkbox" [(ngModel)]="updateStudent.isMale" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="putStudent()">
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Update Modal Ends -->
+<!-- Update Modal Starts -->
+<div
+  class="modal fade"
+  id="deleteModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input
+          type="text"
+          class="form-control d-block"
+          placeholder="ID"
+          [(ngModel)]="deleteStudentID"
+        />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="deleteStudent()">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Modal Ends -->

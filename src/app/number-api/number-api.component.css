@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+.entries {
+  display: flex;
+  justify-content: space-between;
+
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 0.5rem;
+}
+
+.date {
+  border: 2px rgb(0, 119, 255) solid;
+  background-color: rgba(137, 219, 43, 0.89);
+  padding: 0 1rem;
+}
+p {
+  margin: 0px;
+}

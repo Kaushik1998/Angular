@@ -1,0 +1,19 @@
+<div class="bg-dark">
+  <hr />
+  <h1 *ngIf="studentStatus" class="lead text-center">
+    {{ studentStatus }}
+    <hr />
+  </h1>
+  <div class="container">
+    <input
+      type="text"
+      class="form-control d-block"
+      placeholder="Delete Student ID"
+      [(ngModel)]="deleteStudentID"
+    />
+    <button class="btn btn-primary" (click)="deleteStudent()">
+      Delete Student
+    </button>
+  </div>
+  <hr />
+</div>

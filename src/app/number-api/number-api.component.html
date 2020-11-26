@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title text-center display-4">Numbers API</h5>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Number"
+          [(ngModel)]="number"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-primary" (click)="apiCall()">Add</button>
+        </div>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let entry of numberEntries" class="list-group-item">
+          <div class="entries">
+            <p class="btn">
+              {{ entry.value }}
+            </p>
+            <div>
+              <button class="btn btn-primary">
+                {{ getMoment(entry.key) }}
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="card-footer text-center">
+      <button class="btn btn-primary" (click)="clear()">Clear</button>
+    </div>
+  </div>
+</div>
