@@ -1,19 +1,25 @@
-<div class="bg-dark">
+<hr />
+<h1 *ngIf="studentStatus" class="lead text-center">
+  {{ studentStatus }}
   <hr />
-  <h1 *ngIf="studentStatus" class="lead text-center">
-    {{ studentStatus }}
-    <hr />
-  </h1>
-  <div class="container">
+</h1>
+
+<form [formGroup]="deleteForm" (ngSubmit)="onSubmit()" class="container">
+  <div class="form-group">
     <input
       type="text"
-      class="form-control d-block"
       placeholder="Delete Student ID"
-      [(ngModel)]="deleteStudentID"
+      formControlName="delete"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f.delete.errors }"
     />
-    <button class="btn btn-primary" (click)="deleteStudent()">
-      Delete Student
-    </button>
+    <div *ngIf="submitted && f.delete.errors" class="invalid-feedback">
+      <div *ngIf="f.delete.errors.required">Delete is required</div>
+      <div *ngIf="f.delete.errors.minlength">
+        ID must be atleast {{ STUDENT_ID_LENGTH }} digits long.
+      </div>
+    </div>
   </div>
-  <hr />
-</div>
+  <button class="btn btn-primary">Delete Student</button>
+</form>
+<hr />

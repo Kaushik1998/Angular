@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
   styleUrls: ["./update-student.component.css"],
 })
 export class UpdateStudentComponent implements OnInit {
+  readonly STUDENT_ID_LENGTH: number = 36;
   updateStudent: IStudent = {};
   studentStatus: string;
 
@@ -45,7 +46,10 @@ export class UpdateStudentComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      id: ["", [Validators.required,Validators.minLength(36)]],
+      id: [
+        "",
+        [Validators.required, Validators.minLength(this.STUDENT_ID_LENGTH)],
+      ],
       name: ["", Validators.required],
       rollNo: ["", Validators.required],
       age: ["", Validators.required],

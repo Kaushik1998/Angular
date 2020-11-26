@@ -1,5 +1,5 @@
-import { IStudent } from "./../../student-api/istudent";
 import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { StudentApiCallService } from "src/app/student-api/student-api-call.service";
 
 @Component({
@@ -8,9 +8,27 @@ import { StudentApiCallService } from "src/app/student-api/student-api-call.serv
   styleUrls: ["./delete-student.component.css"],
 })
 export class DeleteStudentComponent implements OnInit {
+  readonly STUDENT_ID_LENGTH: number = 36;
   deleteStudentID: string;
   studentStatus: string;
+  deleteForm: FormGroup;
+  submitted = false;
 
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.deleteForm.invalid) {
+      return;
+    }
+
+    this.deleteStudentID = this.deleteForm.value;
+    this.deleteStudent();
+  }
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.deleteForm.controls;
+  }
   deleteStudent() {
     if (this.deleteStudent) {
       this.api.deleteStudent(this.deleteStudentID).subscribe((success) => {
@@ -19,7 +37,17 @@ export class DeleteStudentComponent implements OnInit {
       });
     }
   }
-  constructor(private api: StudentApiCallService) {}
+  constructor(
+    private api: StudentApiCallService,
+    private formBuilder: FormBuilder
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.deleteForm = this.formBuilder.group({
+      delete: [
+        "",
+        [Validators.required, Validators.minLength(this.STUDENT_ID_LENGTH)],
+      ],
+    });
+  }
 }
