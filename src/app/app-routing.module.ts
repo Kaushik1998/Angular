@@ -28,6 +28,7 @@ const routes: Routes = [
         component: StudentSpaLandingPageComponent,
         pathMatch: "full",
       },
+      { path: "home", component: StudentSpaLandingPageComponent },
       { path: "students", component: StudentSpaStudentsComponent },
       { path: "add", component: AddStudentComponent },
       { path: "update", component: UpdateStudentComponent },
