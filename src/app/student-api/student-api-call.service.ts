@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
 })
 export class StudentApiCallService {
   url: string =
-    "http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/";
+    "https://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/";
 
   async getStudents() {
     return this.http.get(this.url);
