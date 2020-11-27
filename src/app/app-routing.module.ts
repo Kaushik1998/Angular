@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AcmeRootComponent } from "./acme/acme-root/acme-root.component";
@@ -10,7 +11,7 @@ import { StudentSpaLandingPageComponent } from "./student-spa/student-spa-landin
 import { StudentSpaStudentsComponent } from "./student-spa/student-spa-students/student-spa-students.component";
 import { StudentSpaComponent } from "./student-spa/student-spa.component";
 import { UpdateStudentComponent } from "./student-spa/update-student/update-student.component";
-
+import { acmeRoutes } from "./acme/acme-routing.module";
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
   },
   { path: "studentApi", component: StudentApiComponent },
   { path: "numbersApi", component: NumberApiComponent },
+  { path: "acme", component: AcmeRootComponent, children: acmeRoutes },
   {
     path: "studentSpa",
     component: StudentSpaComponent,
@@ -34,8 +36,8 @@ const routes: Routes = [
       { path: "add", component: AddStudentComponent },
       { path: "update", component: UpdateStudentComponent },
       { path: "delete", component: DeleteStudentComponent },
-      { path: "acme", component: AcmeRootComponent },
- 
+
+      { path: "**", component: PageNotFoundComponent },
     ],
   },
 ];

@@ -11,3 +11,4 @@ import { NavbarComponent } from "./../navbar/navbar.component";
   exports: [NavbarComponent, PageNotFoundComponent],
 })
 export class SharedModule {}
+export const sharedComponents = [NavbarComponent, PageNotFoundComponent];

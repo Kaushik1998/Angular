@@ -15,3 +15,4 @@ import { StarComponent } from "./star/star.component";
   exports: [AcmeRootComponent],
 })
 export class AcmeModule {}
+export const acmeRoot = [AcmeRootComponent];

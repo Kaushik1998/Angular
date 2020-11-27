@@ -1,4 +1,4 @@
-<navbar [id]="acmeHomeNavbarID" [logo]="acmeHomeNavbarTitle">
+<!-- <navbar [id]="acmeHomeNavbarID" [logo]="acmeHomeNavbarTitle">
   <li class="nav-item" routerLinkActive="active">
     <a routerLink="home" class="nav-link"
       ><button class="btn btn-light">Home</button></a
@@ -9,7 +9,41 @@
       ><button class="btn btn-light">Product List</button></a
     >
   </li>
-</navbar>
+</navbar> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button
+    class="btn btn-primary navbar-brand border border-light p-2"
+    routerLink="landing"
+  >
+    Acme
+  </button>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#acmeHomeNavbarID"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="acmeHomeNavbarID">
+    <ul class="navbar-nav text-center">
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="home" class="nav-link"
+          ><button class="btn btn-light">Home</button></a
+        >
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="productList" class="nav-link"
+          ><button class="btn btn-light">Product List</button></a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
 
 <div class="container mt-3">
   <router-outlet></router-outlet>
