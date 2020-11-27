@@ -1,0 +1,64 @@
+<div class="card container">
+  <h5 class="card-title display-4">Product List</h5>
+  <div class="card-body">
+    <div class="input-group mb-3 p-2">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Filter</span>
+      </div>
+      <input type="text" class="form-control" />
+      <div class="input-group-append">
+        <button class="btn btn-primary" (click)="toggleImages()">
+          {{ imagesToggleButton }}
+        </button>
+      </div>
+    </div>
+    <table class="table table-primary">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th *ngIf="showImages" scope="col">Image</th>
+          <th scope="col">Name</th>
+          <th scope="col">Code</th>
+          <th scope="col">Available</th>
+          <th scope="col">Price</th>
+          <th scope="col">Rating</th>
+          <th scope="col">Stars</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let product of products">
+        <tr>
+          <th scope="row">
+            {{ product.productId }}
+          </th>
+          <td *ngIf="showImages">
+            <img
+              [src]="product.imageUrl"
+              [alt]="product.productName"
+              style="height: 2rem"
+            />
+          </td>
+          <td>
+            <a [routerLink]="['/product', product.productId]">{{
+              product.productName
+            }}</a>
+          </td>
+          <td>
+            {{ product.productCode }}
+          </td>
+          <td>
+            {{ product.releaseDate }}
+          </td>
+          <td>
+            {{ product.price | currency }}
+          </td>
+          <td>
+            {{ product.starRating }}
+          </td>
+          <td>
+            <star [stars]="product.starRating"></star>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

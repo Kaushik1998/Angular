@@ -1,0 +1,16 @@
+<navbar [id]="acmeHomeNavbarID" [logo]="acmeHomeNavbarTitle">
+  <li class="nav-item" routerLinkActive="active">
+    <a routerLink="home" class="nav-link"
+      ><button class="btn btn-light">Home</button></a
+    >
+  </li>
+  <li class="nav-item" routerLinkActive="active">
+    <a routerLink="productList" class="nav-link"
+      ><button class="btn btn-light">Product List</button></a
+    >
+  </li>
+</navbar>
+
+<div class="container mt-3">
+  <router-outlet></router-outlet>
+</div>

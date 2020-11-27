@@ -1,0 +1,64 @@
+<div class="card">
+  <div class="card-title display-4">Product</div>
+  <div class="card-body product-body">
+    <div>
+      <table class="table table-primary">
+        <tbody>
+          <tr>
+            <th scope="row">Name</th>
+            <td>
+              {{ product.productName }}
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Code</th>
+            <td>
+              {{ product.productCode }}
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Description</th>
+            <td>
+              {{ product.description }}
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Availability</th>
+            <td>
+              {{ product.releaseDate }}
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Price</th>
+            <td>
+              {{ product.price | currency }}
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Stars</th>
+            <td>
+              <star [stars]="product.starRating"></star>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <img
+        class="img-fluid border border-primary"
+        [src]="product.imageUrl"
+        alt=""
+      />
+    </div>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-block btn-primary" routerLink="productList">
+      Back
+    </button>
+  </div>
+</div>

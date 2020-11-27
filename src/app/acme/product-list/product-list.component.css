@@ -1,0 +1,25 @@
+.container {
+  padding: 0%;
+  border: #3a86c4 2px solid;
+  border-radius: 1rem;
+}
+
+.card-title {
+  color: azure;
+  background-color: #3a86c4;
+  border-top-left-radius: 0.9rem;
+  border-top-right-radius: 0.9rem;
+  padding: 1rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem 0;
+}
+
+.card-header {
+  background-color: #3a86c4;
+}
